@@ -1,0 +1,45 @@
+var
+    // Variáveis necessárias
+    preco: vetor[5] de real
+    orcamento, total_gasto: real
+    casas_compradas, i: inteiro
+
+inicio
+    // Inicializa o vetor com os preços das casas
+    preco[0] <- 300000.00
+    preco[1] <- 200000.00
+    preco[2] <- 150000.00
+    preco[3] <- 500000.00
+    preco[4] <- 100000.00
+
+    // Ordena os preços das casas em ordem crescente
+    para i de 0 ate 4 faca
+        para j de 0 ate 3 faca
+            se (preco[j] > preco[j+1]) entao
+                aux <- preco[j]
+                preco[j] <- preco[j+1]
+                preco[j+1] <- aux
+            fimse
+        fimpara
+    fimpara
+
+    // Inicializa variáveis de controle e de orcamento
+    total_gasto <- 0.00
+    casas_compradas <- 0
+
+    orcamento <- 800000.00
+
+    // Itera sobre o vetor de preços
+    para i de 0 ate 4 faca
+        se (total_gasto + preco[i] <= orcamento) entao
+            total_gasto <- total_gasto + preco[i]
+            casas_compradas <- casas_compradas + 1
+        senao
+            pare
+        fimse
+    fimpara
+
+    // Exibição dos resultados
+    escreva("Quantidade de casas compradas: ", casas_compradas, "\n")
+    escreva("Valor total gasto: ", total_gasto, " reais\n")
+fimalgoritmo
